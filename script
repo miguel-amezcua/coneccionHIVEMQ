@@ -9,7 +9,7 @@ def on_connect (client, userdata, flags, rc):
     
 
 def on_message( client, userdata, msg):
-    print(msg.topic +' '+ str(msg.payload) )#cuando el cliente manda mensaje debbe coincidir con te topic para realizar la comunicacion
+    print(msg.topic +' '+ str(msg.payload) )#cuando el cliente manda mensaje debe coincidir con te topic para realizar la comunicación
     
 def on_publish(client,userdata,mid):   #create function for callback
    print("data published mid=",mid, "\n")
@@ -31,14 +31,14 @@ client.on_subscribe = on_subscribe       #assign function to callback
 
 client.username_pw_set("samydollar","frio")
 client.connect("repstronic.ciateq.net.mx", 3000, 60)
-client.subscribe("test/#") #esta linea de codigo hace funcionar el on_message, ubicacion importante 
+client.subscribe("test/#") #linea de codigo hace funcionar el on_message, ubicación importante 
 
-###########client.loop_forever()#ayuda a siclar la comunicacion 
+###########client.loop_forever()#ayuda a ciclar la comunicación 
 client.loop_start()
 
 time.sleep(1)
 while True:
-    client.publish("test/","iniciando pruebas  con MQtt:")# metodo de comunicacion mas sencilla, depende directamente de un client.publish,==printf  
+    client.publish("test/","iniciando pruebas  con MQtt:")# metodo de comunicación mas sencilla, depende directamente de un client.publish,==printf  
     time.sleep(15)
 
 client.loop_stop()
